@@ -1,3 +1,4 @@
+import qualified Data.List as DL
 module Main where
 
 -- How you are supposed to do this exercise ?
@@ -40,8 +41,13 @@ toDigits num = toDigits (quot num 10) ++ [(rem num 10)]
 ----------------------------------------------------------------------------------
 
 toDigitsRev :: Integer -> [Integer]
-toDigitsRev n = undefined
+toDigitsRev 0 = []
+toDigitsRev num = [(rem num 10)] ++ toDigitsRev (quot num 10)
 
+-- Another way
+toDigitsRev :: Integer -> [Integer]
+toDigitsRev num = DL.reverse(toDigits num)
+----------------------------------------------------------------------------------
 
 -- You need to map over every element of the list..
 -- But you can use recursion for it as well..
