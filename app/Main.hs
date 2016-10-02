@@ -55,8 +55,12 @@ toDigitsRev num = DL.reverse(toDigits num)
 -- import qualified Data.List as DL
 -- and use DL.map..
 -- but remember it is all about writing Recursion at this point..
+double :: Integer -> Integer
+double num = num * 2
+
 doubleEveryOther :: [Integer] -> [Integer]
-doubleEveryOther list = undefined
+doubleEveryOther list = DL.map double list
+----------------------------------------------------------------------------------
 
 sumDigits :: [Integer] -> Integer
 sumDigits list = undefined
