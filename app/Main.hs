@@ -23,12 +23,25 @@ sayNHello n = sayNHello' 0 n []
       -- keep appending to the list if we are not done yet..
       then sayNHello' (i + 1) n ("Hello" : resultSoFar)
       else resultSoFar -- otherwise we are done..
+----------------------------------------------------------------------------------
+toDigits :: Int -> [Int]
+toDigits n = toDigits' n []
+  where
+    toDigits' :: Int -> [Int] -> [Int]
+    toDigits' num resultSoFar =
+      if num == 0
+        then resultSoFar
+        else toDigits' (quot num 10) ((rem num 10) : resultSoFar)
 
+-- Another way
 toDigits :: Integer -> [Integer]
-toDigits n = undefined
+toDigits 0 = []
+toDigits num = toDigits (quot num 10) ++ [(rem num 10)]
+----------------------------------------------------------------------------------
 
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev n = undefined
+
 
 -- You need to map over every element of the list..
 -- But you can use recursion for it as well..
